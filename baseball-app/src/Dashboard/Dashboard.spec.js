@@ -20,4 +20,16 @@ describe("<Dashboard/>", () => {
     getByText(/Balls: 0/i);
     getByText(/Strikes: 0/i);
   });
+
+  it("adds 1 to strike up to 2", () => {
+    const { getByText, debug } = render(<Dashboard />);
+    const strikeButton = getByText(/strike/i);
+    // getByText(/Strikes: 1/i);
+    // console.log(strikeButton);
+    fireEvent.click(strikeButton);
+    fireEvent.click(strikeButton);
+    getByText(/Strikes: 2/i);
+  });
+
+  //   it("resets strike to 0 when strike is 3", () => {});
 });
