@@ -13,6 +13,7 @@ class Dashboard extends React.Component {
         <h2>Dashboard</h2>
         <button onClick={this.handleHit}>Hit</button>
         <button onClick={this.handleStrike}>Strike</button>
+        <button onClick={this.handleBall}>Ball</button>
         <Display balls={this.state.balls} strikes={this.state.strikes} />
       </>
     );
@@ -28,6 +29,17 @@ class Dashboard extends React.Component {
       this.setState({ strikes: 0, balls: 0 });
     } else {
       this.setState(prevState => ({ strikes: prevState.strikes + 1 }));
+    }
+  };
+
+  handleBall = () => {
+    let balls = this.state.balls;
+    if (balls >= 3) {
+      this.setState({ balls: 0, strikes: 0 });
+    } else {
+      this.setState(prevState => ({
+        balls: prevState.balls + 1
+      }));
     }
   };
 }

@@ -31,5 +31,12 @@ describe("<Dashboard/>", () => {
     getByText(/Strikes: 2/i);
   });
 
-  //   it("resets strike to 0 when strike is 3", () => {});
+  it("resets strike to 0 when strike is 3", () => {
+    const { getByText, debug } = render(<Dashboard />);
+    const strikeButton = getByText(/strike/i);
+    fireEvent.click(strikeButton);
+    fireEvent.click(strikeButton);
+    fireEvent.click(strikeButton);
+    getByText(/Strikes: 0/i);
+  });
 });
