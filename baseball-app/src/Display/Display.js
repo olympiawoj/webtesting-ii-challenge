@@ -10,6 +10,8 @@ class Display extends React.Component {
     return (
       <>
         <h2>Display</h2>
+        <p>Balls: {this.state.balls}</p>
+        <p>Strikes: {this.state.strikes}</p>
       </>
     );
   }
